@@ -9,26 +9,26 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
 //    let softTime = 5
 //    let mediumTime = 8
 //    let hardTime = 15
-    var player: AVAudioPlayer!
+    private var player: AVAudioPlayer!
     
-    var counter = 0
+    private var counter = 0
     
-    var firstCounter: Float = 0.0
+    private var firstCounter: Float = 0.0
     
-    let eggTimes = ["Soft": 3, "Medium": 4, "Hard": 9]
+    private let eggTimes = ["Soft": 3, "Medium": 4, "Hard": 9]
     
-    var timer = Timer()
+    private var timer = Timer()
     
-    @IBOutlet weak var title1: UILabel!
+    @IBOutlet private weak var title1: UILabel!
     
-    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet private weak var progressBar: UIProgressView!
     
-    @IBAction func hardnessSelected(_ sender: UIButton) {
+    @IBAction private func hardnessSelected(_ sender: UIButton) {
         
         progressBar.progress = 0.0
         
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         
     }
     
-    func playSound() {
+    private func playSound() {
         let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3")
         player = try! AVAudioPlayer(contentsOf: url!)
         player.play()
